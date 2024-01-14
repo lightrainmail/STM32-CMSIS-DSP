@@ -10,13 +10,13 @@ git clone -b v1.15.0 https://github.com/ARM-software/CMSIS-DSP.git
 
 其中v1.15.0就是指定这个分支，你也可以选择其他分支
 
-![image-20240114234712550](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240114234712550.png)
+![image-20240114234712550](readme.assets\image-20240114234712550.png)
 
 
 
 必须的代码位于Include、PricvateInclude和Sources目录下
 
-![image-20240114235159981](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240114235159981.png)
+![image-20240114235159981](readme.assets\image-20240114235159981.png)
 
 ## STM32CubeMX生成工程文件
 
@@ -26,11 +26,11 @@ git clone -b v1.15.0 https://github.com/ARM-software/CMSIS-DSP.git
 
 其中SPI用于驱动一个调试用的小屏幕
 
-![image-20240114235808959](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240114235808959.png)
+![image-20240114235808959](readme.assets\image-20240114235808959.png)
 
 可以跑起来后，再开始移植DSP Library
 
-![1705249136413](C:\Users\light\OneDrive\桌面\DSP\readme.assets\1705249136413.jpg)
+![1705249136413](readme.assets\1705249136413.jpg)
 
 
 
@@ -38,11 +38,11 @@ git clone -b v1.15.0 https://github.com/ARM-software/CMSIS-DSP.git
 
 创建一个DSP目录，然后把Include、PrivateInclude、Sources这三个目录及其中的文件复制过来
 
-![image-20240115003303854](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115003303854.png)
+![image-20240115003303854](readme.assets\image-20240115003303854.png)
 
 顺便提一下，这是移植以前，程序空间的占用情况
 
-![image-20240115002359988](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115002359988.png)
+![image-20240115002359988](readme.assets\image-20240115002359988.png)
 
 
 
@@ -50,7 +50,7 @@ git clone -b v1.15.0 https://github.com/ARM-software/CMSIS-DSP.git
 
 在include_directories()中添加.h文件的路径
 
-![image-20240115003322730](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115003322730.png)
+![image-20240115003322730](readme.assets\image-20240115003322730.png)
 
 ```c
 DSP/Include
@@ -60,7 +60,7 @@ DSP/PrivateInclude
 
 由于在其每个单独功能的源代码下都有一个和其目录同名的.c文件，而这个.c文件中#include 了同级目录中的所有.c文件，因此我们需要在file中添加以下命令，避免编译重复
 
-![image-20240115003344856](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115003344856.png)
+![image-20240115003344856](readme.assets\image-20240115003344856.png)
 
 ```c
 "DSP/Source/BasicMathFunctions/BasicMathFunctions.c"
@@ -85,9 +85,9 @@ DSP/PrivateInclude
 
 然后，更新下cmake,就可以进行编译了
 
-![image-20240115003609420](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115003609420.png)
+![image-20240115003609420](readme.assets\image-20240115003609420.png)
 
-![image-20240115003510036](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115003510036.png)
+![image-20240115003510036](readme.assets\image-20240115003510036.png)
 
 可以看到，确实参与了编译。
 
@@ -154,7 +154,7 @@ void App_main(void *argument) {
 
 编译以后得到的程序占用情况
 
-![image-20240115005951902](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115005951902.png)
+![image-20240115005951902](readme.assets\image-20240115005951902.png)
 
 你可以看到，占用立刻就起来了
 
@@ -164,11 +164,11 @@ void App_main(void *argument) {
 
 如图，我已经将能注释掉的目录注释掉了（没注释掉的为必须需要的代码）
 
-![image-20240115011628648](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115011628648.png)
+![image-20240115011628648](readme.assets\image-20240115011628648.png)
 
 编译的结果：
 
-![image-20240115011732281](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115011732281.png)
+![image-20240115011732281](readme.assets\image-20240115011732281.png)
 
 可以看到程序的占用并未改变，由此说明编译器已经进行了优化，未使用的功能虽然参与编译但不会参与构建
 
@@ -176,13 +176,13 @@ void App_main(void *argument) {
 
 ### 然后我们来验证一下结果是否正确
 
-![1705256190684](C:\Users\light\OneDrive\桌面\DSP\readme.assets\1705256190684.jpg)
+![1705256190684](readme.assets\1705256190684.jpg)
 
 下面是Debug模式下，编译器显示的结果
 
-![image-20240115021913180](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115021913180.png)
+![image-20240115021913180](readme.assets\image-20240115021913180.png)
 
-![image-20240115021927291](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115021927291.png)
+![image-20240115021927291](readme.assets\image-20240115021927291.png)
 
 结果没问题
 
@@ -190,8 +190,8 @@ void App_main(void *argument) {
 
 修改一下main函数中的代码，以便使用示波器测量代码运行时间
 
-![image-20240115032959071](C:\Users\light\OneDrive\桌面\DSP\readme.assets\image-20240115032959071.png)
+![image-20240115032959071](readme.assets\image-20240115032959071.png)
 
-![新建文件1](C:\Users\light\OneDrive\桌面\DSP\readme.assets\新建文件1.png)
+![新建文件1](readme.assets\新建文件1.png)
 
 大致得出这两行代码的运行时间是1.1ms
