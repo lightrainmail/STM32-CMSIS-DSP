@@ -1,0 +1,14 @@
+"C:\Program Files\cmake-3.27.9-windows-x86_64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\light\OneDrive\Nucleo_G4\G4_DSP -B C:\Users\light\OneDrive\Nucleo_G4\G4_DSP\cmake-build-debug
+CMake Deprecation Warning:
+  Support for "Extra Generators" like
+
+    CodeBlocks
+
+  is deprecated and will be removed from a future version of CMake.  IDEs may
+  use the cmake-file-api(7) to view CMake-generated project build trees.
+
+
+-- Minimal optimization, debug info included
+-- Configuring done (0.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/light/OneDrive/Nucleo_G4/G4_DSP/cmake-build-debug

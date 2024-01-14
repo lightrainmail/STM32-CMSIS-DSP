@@ -1,0 +1,1 @@
+C:\PROGRA~1\GCC-AR~1.10\bin\AR19DD~1.EXE -g -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Wl,-gc-sections,--print-memory-usage,-Map=C:/Users/light/OneDrive/Nucleo_G4/G4_DSP/cmake-build-debug/G4_DSP.map -mcpu=cortex-m4 -mthumb -mthumb-interwork -T C:/Users/light/OneDrive/Nucleo_G4/G4_DSP/STM32G474RETX_FLASH.ld @CMakeFiles\G4_DSP.elf.dir\objects1.rsp -o G4_DSP.elf 
