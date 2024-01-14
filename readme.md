@@ -195,3 +195,12 @@ void App_main(void *argument) {
 ![新建文件1](https://github.com/lightrainmail/G4_DSP/blob/master/assets/新建文件1.png)
 
 大致得出这两行代码的运行时间是1.1ms
+
+## 补充
+你还需要在CMakeList.txt中取消这三行注释以开启FPU
+```c
+#Uncomment for hardware floating point
+add_compile_definitions(ARM_MATH_CM4;ARM_MATH_MATRIX_CHECK;ARM_MATH_ROUNDING)
+add_compile_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
+add_link_options(-mfloat-abi=hard -mfpu=fpv4-sp-d16)
+```
